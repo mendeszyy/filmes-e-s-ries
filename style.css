@@ -1,0 +1,253 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #0d0f17 0%, #1b1e2c 100%);
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: #12151fdd;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #f8333c;
+  margin-bottom: 15px;
+  text-shadow: 0 0 8px #f8333c99;
+  user-select: none;
+}
+
+#search {
+  width: 100%;
+  max-width: 480px;
+  padding: 14px 20px;
+  font-size: 1.2rem;
+  border-radius: 40px;
+  border: none;
+  background: #22272e;
+  color: #f0f0f0;
+  box-shadow: 0 0 10px #f8333c44;
+  transition: box-shadow 0.3s ease;
+}
+
+#search::placeholder {
+  color: #bbb;
+  font-style: italic;
+}
+
+#search:focus {
+  box-shadow: 0 0 20px #f8333cdd;
+  background: #2e333d;
+  color: #fff;
+  outline: none;
+}
+
+main#content {
+  padding: 40px 20px 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Cards */
+.card {
+  background: linear-gradient(135deg, #292f3a, #1b1f28);
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(248,51,60,0.3);
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform;
+  position: relative;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 25px rgba(248,51,60,0.6);
+  z-index: 10;
+  outline: none;
+}
+
+.card img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-bottom: 3px solid #f8333c;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img,
+.card:focus-within img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 18px 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #f8333c;
+  text-shadow: 0 0 6px #f8333caa;
+  user-select: none;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #bbb;
+  flex-grow: 1;
+  line-height: 1.4;
+  user-select: text;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(20,20,20,0.95);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  z-index: 2000;
+  overflow-y: auto;
+}
+
+.modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.modal-content {
+  background: #181b22;
+  max-width: 900px;
+  width: 90%;
+  border-radius: 20px;
+  padding: 30px 30px 40px;
+  box-shadow: 0 15px 35px rgba(248,51,60,0.7);
+  position: relative;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 2.8rem;
+  color: #f8333c;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.close:hover,
+.close:focus {
+  color: #fff;
+  outline: none;
+}
+
+#modalTitle {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  text-align: center;
+  text-shadow: 0 0 10px #f8333caa;
+  user-select: none;
+}
+
+.media-wrapper {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.media-wrapper iframe {
+  width: 560px;
+  max-width: 100%;
+  height: 315px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(248,51,60,0.8);
+  border: none;
+}
+
+.media-wrapper audio {
+  flex-grow: 1;
+  min-width: 280px;
+  border-radius: 12px;
+  background: #292f3a;
+  box-shadow: 0 6px 15px rgba(248,51,60,0.4);
+  outline: none;
+}
+
+/* Rating Section */
+.rating-section {
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.rating-section h3 {
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #f8333c;
+}
+
+#stars {
+  display: inline-flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.star {
+  font-size: 2.5rem;
+  color: #555;
+  cursor: pointer;
+ 
