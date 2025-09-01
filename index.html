@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estrelas & Opiniões - Universo da Tela</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Estrelas & Opiniões</h1>
+    <input type="text" id="search" placeholder="Pesquisar títulos..." autocomplete="off" aria-label="Pesquisar títulos" />
+  </header>
+
+  <main id="content" aria-live="polite"></main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button id="closeBtn" aria-label="Fechar">&times;</button>
+      <h2 id="modalTitle"></h2>
+      <div class="media-wrapper">
+        <iframe id="trailer" src="" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+        <audio id="audio" controls></audio>
+      </div>
+      <p id="modalDescription"></p>
+
+      <section class="rating-section">
+        <h3>Avalie com estrelas</h3>
+        <div id="stars" aria-label="Avaliação por estrelas" role="radiogroup"></div>
+      </section>
+
+      <section class="comment-section">
+        <h3>Deixe sua opinião</h3>
+        <textarea id="commentInput" rows="4" placeholder="Escreva seu comentário aqui..." aria-label="Campo para escrever comentário"></textarea>
+        <button id="submitComment">Enviar</button>
+        <div id="commentsList" aria-live="polite" aria-relevant="additions"></div>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <p>Desenvolvido por <strong>Paola Valentina Silva Mendes</strong></p>
+  </footer>
+
+  <script src="script.js" defer></script>
+
+</body>
+</html>
